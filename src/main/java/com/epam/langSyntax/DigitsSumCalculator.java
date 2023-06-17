@@ -10,6 +10,7 @@ public class DigitsSumCalculator {
             sum+=tempNumber%10;
             tempNumber/=10;
         }
+
         System.out.println(sum);
     }
 
