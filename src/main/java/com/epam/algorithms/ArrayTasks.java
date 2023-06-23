@@ -1,9 +1,6 @@
 package com.epam.algorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+
 
 
 /**
@@ -94,19 +91,26 @@ public class ArrayTasks {
      * arr = [1,-2, 3]      -> [1, 3] arr = [-1, -2, -3]   -> [] arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
-        List<Integer> positiveList = new ArrayList<>();
+        int count = 0;
+
         for (int num : arr) {
             if (num > 0) {
-                positiveList.add(num);
+                count++;
             }
         }
-        int[] positiveNumbers = new int[positiveList.size()];
-        for (int i = 0; i < positiveList.size(); i++) {
-            positiveNumbers[i] = positiveList.get(i);
-        }
-        return positiveNumbers;
-    }
 
+        int[] positiveArr = new int[count];
+        int index = 0;
+
+        for (int num : arr) {
+            if (num > 0) {
+                positiveArr[index] = num;
+                index++;
+            }
+        }
+
+        return positiveArr;
+    }
     /**
      * Return a sorted, ragged, two-dimensional int[][] array following these rules: Incoming one-dimensional arrays
      * must be arranged in ascending order of their length; numbers in all one-dimensional arrays must be in ascending
@@ -117,10 +121,28 @@ public class ArrayTasks {
      * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-        Arrays.sort(arr, Comparator.comparingInt(a -> a.length));
-        for (int[] subArray : arr) {
-            Arrays.sort(subArray);
+        for (int i = 0; i < arr.length - 1; i++) {
+        for (int j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j].length > arr[j + 1].length) {
+                int[] temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
         }
+    }
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length - 1; j++) {
+                for (int k = 0; k < arr[i].length - j - 1; k++) {
+                    if (arr[i][k] > arr[i][k + 1]) {
+                        int temp = arr[i][k];
+                        arr[i][k] = arr[i][k + 1];
+                        arr[i][k + 1] = temp;
+                    }
+                }
+            }
+        }
+
         return arr;
     }
 
