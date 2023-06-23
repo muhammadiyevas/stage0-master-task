@@ -2,8 +2,6 @@ package com.epam.algorithms;
 
 import com.epam.algorithms.utils.Complexity;
 
-import java.util.ArrayList;
-
 /**
  * Tasks for assessing the algorithm complexity. The following are the ratios of the constants with the BigO estimate:
  * <p>

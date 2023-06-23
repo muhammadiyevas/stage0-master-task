@@ -12,8 +12,9 @@ public class Animal {
     }
 
     public String getDescription(){
-        return "This animal is mostly " + color + ". It has " + numberOfPaws + " paws and "
-                + (hasFur ? "fur." : "no fur.");
+        String furStatus = hasFur ? "a" : "no";
+        String paws = numberOfPaws == 1 ? "paw" : "paws";
+        return "This animal is mostly " + color + ". It has " + numberOfPaws + " " + paws + " and " + furStatus + " fur.";
     }
 
 }

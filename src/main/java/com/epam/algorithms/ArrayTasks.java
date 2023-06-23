@@ -5,19 +5,18 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+
 /**
  * Here are the tasks for working with the arrays.
  * <p>
  * The usage of any additional packages (such as java.util.*) is forbidden.
  */
 public class ArrayTasks {
-
     /**
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        String[] seasons = {"Winter", "Spring", "Summer", "Autumn"};
-        return seasons;
+        return new String[]{"winter", "spring", "summer", "autumn"};
     }
 
     /**
@@ -50,7 +49,6 @@ public class ArrayTasks {
             sum += num;
         }
         return sum;
-
     }
 
     /**
